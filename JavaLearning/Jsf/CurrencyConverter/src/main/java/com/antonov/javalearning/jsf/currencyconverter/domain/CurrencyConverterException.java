@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.antonov.domain;
+package com.antonov.javalearning.jsf.currencyconverter.domain;
 
 /**
  *

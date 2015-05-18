@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.antonov.domain;
+package com.antonov.javalearning.jsf.currencyconverter.domain;
 
 import java.math.BigDecimal;
 
