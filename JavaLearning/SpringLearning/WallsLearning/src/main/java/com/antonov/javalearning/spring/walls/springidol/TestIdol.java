@@ -23,5 +23,9 @@ public class TestIdol {
         
         Performer marta = (Performer)context.getBean("Marta");
         marta.perform();        
+        
+        Performer kenny = (Performer)context.getBean("Kenny");
+        kenny.perform();        
+        
     }
 }

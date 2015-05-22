@@ -9,21 +9,16 @@ package com.antonov.javalearning.spring.walls.springidol;
  *
  * @author Dmitry
  */
-public class Stage {
+public class Saxophone implements Instrument {
 
-    private Stage() {
+    public Saxophone() {
     }
 
-    private static class StageHolder {
-
-        static Stage stage = new Stage();
-
-        static Stage instance() {
-            return stage;
-        }
-    }
-
-    public static Stage getInstance() {
-        return StageHolder.instance();
+    /**
+     *
+     */
+    @Override
+    public void play() {
+        System.out.println("TOOT TOOT TOOT");
     }
 }

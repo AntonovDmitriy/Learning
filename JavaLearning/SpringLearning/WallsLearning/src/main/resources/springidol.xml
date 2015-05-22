@@ -24,10 +24,12 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     <bean id="auditorium" class="com.antonov.javalearning.spring.walls.springidol.Auditorium"
     init-method="turnOnLights" destroy-method="turnOffLights"/>
     
-    <bean id="kenny" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
+    <bean id="Kenny" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
        <property name="song" value="Jingle Bells"/>
        <property name="age" value="30"/>
+       <property name="instrument" ref="saxophone"/>
     </bean>
     
+    <bean id="saxophone" class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>
     
 </beans>
