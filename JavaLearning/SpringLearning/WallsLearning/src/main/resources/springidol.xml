@@ -11,6 +11,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     <bean id="Marta" class="com.antonov.javalearning.spring.walls.springidol.PoeticJuggler">
         <constructor-arg value="20"/> 
         <constructor-arg ref="Sonnet29"/>
+        <!--        <constructor-arg>
+            <bean class="com.antonov.javalearning.spring.walls.springidol.Sonnet29"/>
+        </constructor-arg>-->
     </bean>
     
     <bean id="Sonnet29" class="com.antonov.javalearning.spring.walls.springidol.Sonnet29"/>
@@ -22,14 +25,18 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
           scope="prototype"/>
     
     <bean id="auditorium" class="com.antonov.javalearning.spring.walls.springidol.Auditorium"
-    init-method="turnOnLights" destroy-method="turnOffLights"/>
+          init-method="turnOnLights" destroy-method="turnOffLights"/>
     
     <bean id="Kenny" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
-       <property name="song" value="Jingle Bells"/>
-       <property name="age" value="30"/>
-       <property name="instrument" ref="saxophone"/>
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="30"/>
+        <!--<property name="instrument" ref="piano"/>-->
+        <!--Если Кенни хочет иметь свой личный саксофон, ибо гигиена. Объявление внутренего бина-->
+        <property name="instrument">
+            <bean class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>
+        </property>
     </bean>
     
     <bean id="saxophone" class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>
-    
+    <bean id="piano" class="com.antonov.javalearning.spring.walls.springidol.Piano"/>
 </beans>
