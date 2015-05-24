@@ -67,7 +67,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         <!--Вызов публичной константы-->
         <!--<property name="song" value="#{T(java.lang.Math).PI}"/>-->
                 <!--Вызов статического метода-->
-        <property name="song" value="#{T(java.lang.Math).random()}"/>
+        <property name="song" value="#{T(java.lang.Math).random() + 2 ^ 2}"/>
         
         <property name="instrument" ref="piano"/>
     </bean>
