@@ -27,14 +27,49 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     <bean id="auditorium" class="com.antonov.javalearning.spring.walls.springidol.Auditorium"
           init-method="turnOnLights" destroy-method="turnOffLights"/>
     
-    <bean id="Kenny" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
-        <property name="song" value="Jingle Bells"/>
+    <bean id="kenny" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells HARD ROCK"/>
         <property name="age" value="30"/>
         <!--<property name="instrument" ref="piano"/>-->
         <!--Если Кенни хочет иметь свой личный саксофон, ибо гигиена. Объявление внутренего бина-->
         <property name="instrument">
             <bean class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>
         </property>
+    </bean>
+    
+    <bean id="Hank" class="com.antonov.javalearning.spring.walls.springidol.OneManBand">
+        <property name="instruments">
+<!--            <list>
+                <ref bean="saxophone"/>
+                <ref bean="piano"/>
+            </list>
+            <set>
+                <ref bean="saxophone"/>
+                <ref bean="piano"/>
+            </set>-->
+            <map>
+                <entry key="SAX" value-ref="saxophone" />
+                <entry key="PIANO" value-ref="piano" />
+            </map>
+<!--            <props>
+                <prop key="GUITAR">STRUM STRUM STRUM</prop>
+                <prop key="CYMBAL">CRASH CRASH CRASH</prop>
+                <prop key="HARMONICA">HUM HUM HUM</prop>
+            </props>-->
+        </property>
+        <property name="someNonNullProperty"><null/></property>
+    </bean>
+    
+    <bean id="Karl" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
+        <!--<property name="song" value="#{kenny.song}"/>-->
+        <!--Вызов любого метоа из другого бина с проверкой на null-->
+        <!--<property name="song" value="#{kenny.getSong()?.toUpperCase()}"/>-->
+        <!--Вызов публичной константы-->
+        <!--<property name="song" value="#{T(java.lang.Math).PI}"/>-->
+                <!--Вызов статического метода-->
+        <property name="song" value="#{T(java.lang.Math).random()}"/>
+        
+        <property name="instrument" ref="piano"/>
     </bean>
     
     <bean id="saxophone" class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>

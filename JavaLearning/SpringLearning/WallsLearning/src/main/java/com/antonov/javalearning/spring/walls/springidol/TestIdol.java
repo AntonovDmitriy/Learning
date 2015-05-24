@@ -18,14 +18,17 @@ public class TestIdol {
     public static void main(String[] args) throws PerformanceException {
         
         ApplicationContext context = new ClassPathXmlApplicationContext("springidol.xml");
-        Performer performer = (Performer)context.getBean("Duke");
-        performer.perform();
-        
-        Performer marta = (Performer)context.getBean("Marta");
-        marta.perform();        
-        
-        Performer kenny = (Performer)context.getBean("Kenny");
-        kenny.perform();        
+//        Performer performer = (Performer)context.getBean("Duke");
+//        performer.perform();
+//        
+//        Performer marta = (Performer)context.getBean("Marta");
+//        marta.perform();        
+//        
+//        Performer kenny = (Performer)context.getBean("Kenny");
+//        kenny.perform();        
+  
+                Performer kenny = (Performer)context.getBean("Karl");
+        kenny.perform(); 
         
     }
 }
