@@ -39,7 +39,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     
     <bean id="Hank" class="com.antonov.javalearning.spring.walls.springidol.OneManBand">
         <property name="instruments">
-<!--            <list>
+            <!--            <list>
                 <ref bean="saxophone"/>
                 <ref bean="piano"/>
             </list>
@@ -51,13 +51,15 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
                 <entry key="SAX" value-ref="saxophone" />
                 <entry key="PIANO" value-ref="piano" />
             </map>
-<!--            <props>
+            <!--            <props>
                 <prop key="GUITAR">STRUM STRUM STRUM</prop>
                 <prop key="CYMBAL">CRASH CRASH CRASH</prop>
                 <prop key="HARMONICA">HUM HUM HUM</prop>
             </props>-->
         </property>
-        <property name="someNonNullProperty"><null/></property>
+        <property name="someNonNullProperty">
+            <null/>
+        </property>
     </bean>
     
     <bean id="Karl" class="com.antonov.javalearning.spring.walls.springidol.Instrumentalist">
@@ -66,10 +68,48 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         <!--<property name="song" value="#{kenny.getSong()?.toUpperCase()}"/>-->
         <!--Вызов публичной константы-->
         <!--<property name="song" value="#{T(java.lang.Math).PI}"/>-->
-                <!--Вызов статического метода-->
-        <property name="song" value="#{T(java.lang.Math).random() + 2 ^ 2}"/>
         
+        <!--Вызов статического метода-->
+        <property name="song" value="#{T(java.lang.Math).random() + 2 ^ 2}"/>
         <property name="instrument" ref="piano"/>
+        <!--Логические выражения le lt ge gt eq-->
+        <!--<property name="hasCapacity" value="#{counter.total le 100000}"/>-->
+        
+        <!-- Логические выражения-->
+        <!--<property name="largeCircle" value="#{shape.kind == 'circle' and shape.perimeter gt 10000}"/>  -->
+        
+        <!--Условные вычисления-->
+        <!--<property name="instrument" value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>-->
+        
+        <!--Оператор Элвис. Вернет значение, если свойство = null-->
+        <!--<property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>-->
+        
+        <!--Регулярные выражения-->
+        <!--<property name="validEmail" value= "#{admin.email matches '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com'}"/>-->
+        
+        <!--Доступ к переменным окружения и системным переменным-->
+        <!--<property name="homePath" value="#{systemEnvironment['HOME']}"/>-->
+        <!--<property name="homePath" value="#{systemProperties['application.home']}"/>-->
+        
+        <!--Оператор выборки из коллекции. .?[] Возвращает другую коллекцию по условию-->
+        <!--<property name="bigCities" value="#{cities.?[population gt 100000]}"/>-->
+        
+        <!--Оператор выборки из коллекции. .^[] .$[] Возвращение первого элемента и последнего-->
+        <!--<property name="aBigCity" value="#{cities.^[population gt 100000]}"/>-->
+        <!--<property name="aBigCity" value="#{cities.$[population gt 100000]}"/>-->
+        
+        <!--Оператор отображения. .![]Вернет из коллекции объектов список свойств каждого объекта-->
+        <!--Можно и совмещать эти свойства-->
+        <!--<property name="cityNames" value="#{cities.![name]}"/>-->
+        <!--<property name="cityNames" value="#{cities.![name + ', ' + state]}"/>-->
+        
+        <!--        
+                Совет автора относительно SPeL
+                Я рекомендую использовать выражения на языке SpEL везде,
+        где они могут упростить внедрение, которое сложно (если вообще
+        возможно) реализовать иными способами. Но будьте внимательны,
+        не переусердствуйте. Не поддавайтесь искушению перенести мак-
+        симально возможный объем логики в выражения на языке SpEL.-->
     </bean>
     
     <bean id="saxophone" class="com.antonov.javalearning.spring.walls.springidol.Saxophone"/>
