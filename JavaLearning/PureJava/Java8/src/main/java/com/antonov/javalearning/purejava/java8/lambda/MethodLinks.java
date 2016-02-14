@@ -1,4 +1,4 @@
-package com.antonov.purejavalearning.lambda;
+package com.antonov.javalearning.purejava.java8.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;
