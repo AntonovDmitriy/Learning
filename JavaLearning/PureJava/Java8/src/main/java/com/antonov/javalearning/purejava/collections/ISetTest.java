@@ -33,6 +33,10 @@ public class ISetTest {
 		Collection<String> colNames = colEmp.stream().filter(e -> e != null).map(Employee::getName)
 				.collect(Collectors.toCollection(TreeSet::new));
 		System.out.println(colNames);
+		
+		//сравнить retainAll в collection и имплементацию в Set. anotherTestEmpcollection
+		// прочитать Collection  Set в javadoc
+		
 	}
 
 }
