@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class ICollectionTest {
 
-	private static class Employee {
+	public static class Employee {
 
 		private Color color;
 		private int salary;
@@ -63,17 +63,20 @@ public class ICollectionTest {
 		@Override
 		public String toString() {
 
-			return getName() + "" + getSalary();
+			return getName() + " " + getSalary();
 		}
 	}
 
-	public static void main(String[] args) {
-
+	public static Collection<String> getTestStringCollection() {
+		
 		Collection<String> colString = new ArrayList<>();
 		colString.add("first");
 		colString.add("second");
 		colString.add("third");
-
+		return colString;
+	}
+	
+	public static Collection<Employee> getTestEmployeeCollection() {
 		Collection<Employee> colEmp = new ArrayList<>();
 		colEmp.add(new Employee(Color.RED, 10, "Иван"));
 		colEmp.add(new Employee(Color.BLACK, 20, "Ольга"));
@@ -82,6 +85,13 @@ public class ICollectionTest {
 		colEmp.add(new Employee(Color.GREEN, 30, "Василий"));
 		colEmp.add(null);
 		colEmp.add(null);
+		return colEmp;
+	}
+	
+	public static void main(String[] args) {
+
+		Collection<String> colString = getTestStringCollection();
+		Collection<Employee> colEmp = getTestEmployeeCollection();
 
 		// Начиная с Java 8 рекомендуется использовать stream при работе с
 		// коллекциями
