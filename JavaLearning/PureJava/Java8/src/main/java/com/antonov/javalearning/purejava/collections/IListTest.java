@@ -29,6 +29,7 @@ public class IListTest {
 		ListIterator<String> listIterator = listStr.listIterator();
 		// Есть форма с индексом, где индекс обозначает позицию итератора. Причем например для аргумента 1 next() будет выдавать элемент с индексом 1 
 		// а previous с индексом 0
+		
 		ListIterator<String> listIteratorStartWith = listStr.listIterator(listStr.size()-1);
 		
 	}
