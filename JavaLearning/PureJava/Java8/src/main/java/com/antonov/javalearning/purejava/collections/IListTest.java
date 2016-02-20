@@ -31,6 +31,9 @@ public class IListTest {
 		// а previous с индексом 0
 		
 		ListIterator<String> listIteratorStartWith = listStr.listIterator(listStr.size()-1);
-		
+		listStr.listIterator();
+		// У ListItarator есть методы add() и set() которые вставляют или замещают элемент
+		// перед тем, который должне вернуть next() или после элемента previous()
+	
 	}
 }
