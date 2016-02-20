@@ -1,5 +1,6 @@
 package com.antonov.javalearning.purejava.collections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +15,7 @@ public class IListTest {
 
 		String[] arrStr = { "One", "Two" };
 		List<String> listStr = Arrays.asList(arrStr);
+		List<String> listStrModifiable = new ArrayList(listStr);
 		try {
 			listStr.add("Third");
 		} catch (UnsupportedOperationException ex) {
@@ -35,5 +37,35 @@ public class IListTest {
 		// У ListItarator есть методы add() и set() которые вставляют или замещают элемент
 		// перед тем, который должне вернуть next() или после элемента previous()
 	
+		
+		// Интересный метод sublist. Возвращает лист, изменения в котором автоматически завтрагивают родительский лист.
+		System.out.println(listStrModifiable);
+		List<String> subList = listStrModifiable.subList(0, listStr.size());
+		
+		
+		// Делать операции с подлистом безопасно
+		subList.set(0, "Another");
+		System.out.println(subList);
+		System.out.println(listStrModifiable);
+		subList.add("Third)");
+		System.out.println(subList);
+		System.out.println(listStrModifiable);
+		subList.remove(0);
+		System.out.println(subList);
+		System.out.println(listStrModifiable);
+		
+		
+		// Делать операции с начальным листом небезопасно. Операции затрагивающие изменения размера могу вызвать исключение
+		listStrModifiable.set(0, "Another");
+		System.out.println(listStrModifiable);
+		System.out.println(subList);
+		listStrModifiable.add("Third)");
+		System.out.println(listStrModifiable);
+		System.out.println(subList);
+		listStrModifiable.remove(0);
+		System.out.println(listStrModifiable);
+		System.out.println(subList);
+		
+		
 	}
 }
