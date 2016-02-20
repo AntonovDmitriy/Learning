@@ -68,14 +68,14 @@ public class ICollectionTest {
 	}
 
 	public static Collection<String> getTestStringCollection() {
-		
+
 		Collection<String> colString = new ArrayList<>();
 		colString.add("first");
 		colString.add("second");
 		colString.add("third");
 		return colString;
 	}
-	
+
 	public static Collection<Employee> getTestEmployeeCollection() {
 		Collection<Employee> colEmp = new ArrayList<>();
 		colEmp.add(new Employee(Color.RED, 10, "Иван"));
@@ -87,7 +87,7 @@ public class ICollectionTest {
 		colEmp.add(null);
 		return colEmp;
 	}
-	
+
 	public static void main(String[] args) {
 
 		Collection<String> colString = getTestStringCollection();
@@ -116,28 +116,29 @@ public class ICollectionTest {
 		// Удалим все null из коллекции
 		colEmp.removeAll(Collections.singleton(null));
 		System.out.println(colEmp.toString());
-		
+
 		// Преобразуем коллекцию в массив
 		// ВАЖНО можно писать 0 в размере массива
 		Employee[] arrayEmp = colEmp.toArray(new Employee[0]);
 		System.out.println(Arrays.toString(arrayEmp));
-		
-		
-		// Для изменения текущей коллекции, а именно удаление специфических элементов нужно применять 
-		// толко remove через Iterator. При итерации другие поведение других методов не может быть гарантированным
-		// поэтому цикл for each не подходит для этих целей. Если нужно удалить элементы при обхода пишем так
-		
-		for(Iterator<Employee> it = colEmp.iterator();it.hasNext();){
-			if(it.next().getColor() == Color.BLACK){
+
+		// Для изменения текущей коллекции, а именно удаление специфических
+		// элементов нужно применять
+		// толко remove через Iterator. При итерации другие поведение других
+		// методов не может быть гарантированным
+		// поэтому цикл for each не подходит для этих целей. Если нужно удалить
+		// элементы при обхода пишем так
+
+		for (Iterator<Employee> it = colEmp.iterator(); it.hasNext();) {
+			if (it.next().getColor() == Color.BLACK) {
 				it.remove();
 			}
 		}
 		System.out.println(colEmp.toString());
 
-		//интересный метод retainAll. Он удаляет все элементы из текущей коллекции, которые не равны элементы
+		// интересный метод retainAll. Он удаляет все элементы из текущей
+		// коллекции, которые не равны элементы
 		// коллекции в аргументе
-		
-
 
 	}
 
