@@ -21,6 +21,7 @@ public class ISetTest {
 		// другой способ, с использованием stream
 		colEmpWithoutDups = colEmp.stream().collect(Collectors.toSet());
 		System.out.println(colEmpWithoutDups);
+		System.out.println("tadam");
 
 		//а как сохранить порядок изначальной коллекции и устранить дубликаты
 		colEmpWithoutDups = colEmp.stream().collect(Collectors.toCollection(LinkedHashSet::new));
