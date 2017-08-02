@@ -12,5 +12,7 @@ public class XmlConfigWithBeanFactory {
         reader.loadBeanDefinitions("/xml-bean-factory-config.xml");
         Oracle bean = (Oracle) factory.getBean("oracle");
         System.out.println(bean.defineMeaningOfLife());
+
+
     }
 }
