@@ -25,9 +25,9 @@ public class TestIdol {
 //        marta.perform();        
 //        
 //        Performer kenny = (Performer)context.getBean("Kenny");
-//        kenny.perform();        
-  
-                Performer kenny = (Performer)context.getBean("Karl");
+//        kenny.perform();
+
+        Performer kenny = (Performer)context.getBean("Karl");
         kenny.perform(); 
         
     }
