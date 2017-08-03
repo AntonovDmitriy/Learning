@@ -1,5 +1,8 @@
 package com.antonov.message;
 
+import org.springframework.stereotype.Service;
+
+@Service("messageRenderer")
 public class StandardOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider;
