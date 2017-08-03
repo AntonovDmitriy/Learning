@@ -1,6 +1,9 @@
 package com.antonov.message;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service("messageRenderer")
 public class StandardOutMessageRenderer implements MessageRenderer {
@@ -17,6 +20,8 @@ public class StandardOutMessageRenderer implements MessageRenderer {
     }
 
     @Override
+//    @Autowired или так
+    @Resource(name = "messageProvider")
     public void setMessageProvider(MessageProvider provider) {
         this.messageProvider = provider;
     }

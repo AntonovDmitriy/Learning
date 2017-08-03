@@ -5,5 +5,7 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageProvider" class="com.antonov.message.HelloWorldMessageProvider"/>
-    <bean id="messageRenderer" class="com.antonov.message.StandardOutMessageRenderer"/>
+    <bean id="messageRenderer" class="com.antonov.message.StandardOutMessageRenderer">
+        <property name="messageProvider" ref="messageProvider"/>
+    </bean>
 </beans>
